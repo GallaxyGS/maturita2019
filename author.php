@@ -15,15 +15,14 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . "db
   $sql->execute();
   $result = $sql->get_result();
   while ($authors = $result->fetch_assoc()) {
-  ?> <a href="authordetail.php?idauthor=<?php echo $authors['id_author'];?>"><?php echo $authors['name']; ?> </a> <?php
+  ?> <a href="authordetail.php?idauthor=<?php echo $authors['id_author'];?>"><?php echo $authors['firstname'] . $authors['lastname'] ; ?> </a> <?php
   echo "<br>";
 }
 
 
 
 
- ?>
-
+ ?> 
 
   </body>
 </html>
