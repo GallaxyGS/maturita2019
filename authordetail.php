@@ -16,17 +16,18 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . "db
           $sql = $mysqli->prepare("SELECT * FROM authors WHERE id_author = ?");
           $sql->bind_param("s" , $idauthor);
           $sql->execute();
-          $author = $sql->get_result()->fetch_assoc();
+          $result = $sql->get_result();
+          $author = $result->fetch_assoc();
 
-          $sql = $mysqli->prepare("SELECT * FROM books b JOIN book_authors ba ON b.id_book = ba.id_book WHERE ba.id_author = ?");
-          $sql->bind_param("s" , $idauthor);
-          $sql->execute();
-          $book = $sql->get_result();
+          $sql2 = $mysqli->prepare("SELECT * FROM books b JOIN book_authors ba ON b.id_book = ba.id_book WHERE ba.id_author = ?");
+          $sql2->bind_param("s" , $idauthor);
+          $sql2->execute();
+          $result2 = $sql2->get_result();
 
        ?>
        <h1>Autor: <?php echo $author['firstname'] . $author['lastname']; ?> </h1>
-       <h2>Napsal tyto knihy:<?php while ($book2 = $book->fetch_assoc()) {
-       ?><a href="bookdetail.php?idbook= <?php echo $book2['id_book'];?>"><?php echo " "; echo $book2['title']; ?> </a> <?php
+       <h2>Napsal tyto knihy:<?php while ($book = $result2->fetch_assoc()) {
+       ?><a href="bookdetail.php?idbook= <?php echo $book['id_book'];?>"><?php echo " "; echo $book['title']; ?> </a> <?php
        echo "</br>";
      }
 

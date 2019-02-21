@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . "db.php";
+require_once  "db.php";
 
  ?>
 <!DOCTYPE html>
@@ -10,8 +10,8 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . "db
   </head>
   <body>
       <?php
-          $idbook = filter_input(INPUT_GET, "idbook");
-          $idauthor = filter_input(INPUT_GET, "idauthor");
+          $idbook = filter_input(INPUT_GET, "id_book");
+          $idauthor = filter_input(INPUT_GET, "id_author");
 
           $sql = $mysqli->prepare("SELECT * FROM books WHERE id_book = ?");
           $sql->bind_param("s" , $idbook);
@@ -32,7 +32,6 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . "db
        <h3>Popis: <?php echo $book['description'] ?> </h3>
        <h3>Rok vydání: <?php echo $book['year'] ?> </h3>
        <h3>Vytvořeno: <?php echo $book['created_at'] ?> </h3>
-       
 
   </body>
 </html>
