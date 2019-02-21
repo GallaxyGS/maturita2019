@@ -45,7 +45,7 @@
                  <td> <?php  echo $books['ean']; ?> </td>
                  <td> <?php echo $books['firstname']; ?> </td>
                  <td> <?php echo $books['lastname']; ?> </td>
-                 <td> <a href="./listbooks.php?id_book=<?php echo $books['id_book']?>">Upravit</a> </td>
+                 <td> <a href="../bookdetail.php?idbook=<?php echo $books['id_book']?>">Upravit</a> </td>
                 <?php
 
                }
