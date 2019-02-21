@@ -32,7 +32,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . "db
        <h3>Popis: <?php echo $book['description'] ?> </h3>
        <h3>Rok vydání: <?php echo $book['year'] ?> </h3>
        <h3>Vytvořeno: <?php echo $book['created_at'] ?> </h3>
-       
+
 
   </body>
 </html>
