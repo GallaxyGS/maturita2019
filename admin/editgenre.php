@@ -1,4 +1,6 @@
 <?php include_once __DIR__ . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPARATOR . 'header.php' ;
+if ($_SESSION['id_role'] == 1) {
+
 $id_genre = filter_input(INPUT_GET, "id_genre");
 $submit = filter_input(INPUT_POST, "submit");
 $name = filter_input(INPUT_GET, "name");
@@ -56,5 +58,5 @@ $genre = $genres->fetch_assoc();
 
 
 
-
+<?php } else {echo "Nemáš dodatečné oprávnění";} ?>
 <?php include_once __DIR__ . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPARATOR .  'footer.php' ?></body>

@@ -1,7 +1,7 @@
 
 <?php
-session_start(); 
-if (!isset( $_SESSION['username'] )) {header ('location: login.php');}?>
+session_start();
+if (!isset( $_SESSION['name'] )) {header ('location: login.php');}?>
 
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../" . DIRECTORY_SEPARATOR . "db.php";
@@ -18,7 +18,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "../" . DIRECTORY_SEPARATOR . "db.p
     <title>Dashboard Template · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
-
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <!-- Bootstrap core CSS -->
 <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -99,6 +99,13 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "../" . DIRECTORY_SEPARATOR . "db.p
             <a class="nav-link" href="editgenre.php">
               <span data-feather="file-text"></span>
               Upravit žánr
+            </a>
+          </li>
+          Přihlášený uživatel: <?php  $_SESSION['name'] ?>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">
+              <span data-feather="file-text"></span>
+              Odhlásit se
             </a>
           </li>
         </ul>
