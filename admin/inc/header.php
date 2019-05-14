@@ -101,7 +101,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "../" . DIRECTORY_SEPARATOR . "db.p
               Upravit žánr
             </a>
           </li>
-          Přihlášený uživatel: <?php  $_SESSION['name'] ?>
+          Přihlášený uživatel: <?php  echo $_SESSION['name']; ?>
           <li class="nav-item">
             <a class="nav-link" href="logout.php">
               <span data-feather="file-text"></span>
